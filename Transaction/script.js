@@ -7,7 +7,7 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const timers = document.querySelector(".tictac");
 const LIMIT = 30 * 1000;
-const montant = input.value;
+let MONTANT = parseInt(input.value);
 
 p.textContent = "1000$";
 let solde = parseInt(p.textContent);
@@ -18,7 +18,11 @@ function count(date) {
     Seconde: Math.floor(date % (60 * 1000)) / 1000,
   };
 }
-function transac(montant) {}
+function transac(mont) {
+  const newp = document.createElement("p");
+
+  let newsolde = solde - mont;
+}
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -36,6 +40,8 @@ btn.addEventListener("click", (e) => {
         span.innerHTML = `${m.Minute}Min :${m.Seconde}Secs `;
       }
     }, 1000);
+    transac(MONTANT);
+    console.log(transac(MONTANT));
 
     timers.style.display = "flex";
   }
