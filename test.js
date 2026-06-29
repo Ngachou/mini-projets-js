@@ -17,3 +17,5 @@ let chiffre = [1, 2, 3, 5, 6, 23];
 /*chiffre.forEach((index) => {
   console.log(`${index}`);
 }); permet de parcourir le tableau*/
+const tab = new Array(chiffre.isArray);
+Array.isArray();
