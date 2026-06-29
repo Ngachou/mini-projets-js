@@ -7,10 +7,8 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const timers = document.querySelector(".tictac");
 const LIMIT = 30 * 1000;
-let MONTANT = parseInt(input.value);
 
-p.textContent = "1000$";
-let solde = parseInt(p.textContent);
+p.textContent = "1000";
 
 function count(date) {
   return {
@@ -19,9 +17,9 @@ function count(date) {
   };
 }
 function transac(mont) {
-  const newp = document.createElement("p");
-
+  let solde = parseInt(p.textContent);
   let newsolde = solde - mont;
+  return (p.textContent = newsolde);
 }
 
 btn.addEventListener("click", (e) => {
@@ -29,8 +27,10 @@ btn.addEventListener("click", (e) => {
   if (input.value > solde || input.value <= 0 || !input.value) {
     alert("veuillez entrer un nouveau montant");
   } else {
+    let montant = parseInt(input.value);
     let date = LIMIT;
     let m = count(date);
+    transac(montant);
     let t = setInterval(() => {
       if (date <= 0) return clearInterval(t);
       else {
@@ -40,8 +40,7 @@ btn.addEventListener("click", (e) => {
         span.innerHTML = `${m.Minute}Min :${m.Seconde}Secs `;
       }
     }, 1000);
-    transac(MONTANT);
-    console.log(transac(MONTANT));
+    console.log(transac(montant));
 
     timers.style.display = "flex";
   }
