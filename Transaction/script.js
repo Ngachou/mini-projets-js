@@ -3,45 +3,55 @@ const input = document.getElementById("input");
 const p = document.querySelector("#solde");
 const btn = document.querySelector(".btn");
 const span = document.getElementById("span");
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
+const stopper = document.getElementById("btn1");
 const timers = document.querySelector(".tictac");
-const LIMIT = 30 * 1000;
+let solde = parseInt(localStorage.getItem("mnt")) || 1000;
+const LIMIT = 5 * 1000;
+p.textContent = solde;
 
-p.textContent = "1000";
-
-function count(date) {
+//this function enables of convert time to millisecondes
+function decount(date) {
   return {
     Minute: Math.floor(date / (60 * 1000)),
     Seconde: Math.floor(date % (60 * 1000)) / 1000,
   };
 }
+
+//this function does a soustraction from the account
 function transac(mont) {
-  let solde = parseInt(p.textContent);
   let newsolde = solde - mont;
+  localStorage.setItem("mnt", newsolde);
   return (p.textContent = newsolde);
 }
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (input.value > solde || input.value <= 0 || !input.value) {
-    alert("veuillez entrer un nouveau montant");
-  } else {
-    let montant = parseInt(input.value);
-    let date = LIMIT;
-    let m = count(date);
-    transac(montant);
-    let t = setInterval(() => {
-      if (date <= 0) return clearInterval(t);
-      else {
-        date -= 1000;
-        m = count(date);
-        console.log(m, date);
-        span.innerHTML = `${m.Minute}Min :${m.Seconde}Secs `;
-      }
-    }, 1000);
-    console.log(transac(montant));
+  if (input.value > solde || input.value <= 0 || !input.value)
+    return alert("veuillez entrer un nouveau montant");
 
-    timers.style.display = "flex";
-  }
+  let montant = parseInt(input.value);
+  let date = LIMIT;
+  let m = decount(date);
+
+  //this function decount the transaction time
+  let t = setInterval(() => {
+    if (date <= 0) {
+      transac(montant);
+      timers.style.display = "none";
+      return clearInterval(t);
+    }
+
+    date -= 1000;
+    m = decount(date);
+    console.log(m, date);
+    span.innerHTML = `${m.Minute}Min :${m.Seconde}Secs `;
+  }, 1000);
+  timers.style.display = "flex";
+
+  //this buttom stop the transaction
+  stopper.addEventListener("click", () => {
+    clearInterval(t);
+    timers.style.display = "none";
+    input.value = "";
+  });
 });
