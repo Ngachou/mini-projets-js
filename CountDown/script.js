@@ -1,11 +1,15 @@
-const form = document.getElementById("form");
+const container = document.getElementById("container");
 const btn = document.querySelector(".btn");
 const input = document.getElementById("input");
+const day = document.getElementById("day");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const secondes = document.getElementById("secondes");
 
 function countDate(date) {
   const currentDatate = new Date().getTime();
   const newDate = date - currentDatate;
-  if (newDate < 0) return console.log("Date deja passer");
+  if (newDate < 0) return;
   console.log();
   const d = new Date(newDate);
   return {
@@ -17,8 +21,6 @@ function countDate(date) {
 }
 
 btn.addEventListener("click", () => {
-  let span = document.createElement("span");
-  form.appendChild(span);
   let date = new Date(input.value).getTime();
   console.log(input.value);
 
@@ -26,8 +28,10 @@ btn.addEventListener("click", () => {
   let t = setInterval(() => {
     date = new Date(date).getTime();
     d = countDate(date);
-
-    span.innerHTML = `${d.jours} Days :${d.Heures} Hours :${d.Minute} Minute :${d.secondes} Secondes`;
+    day.innerHTML = `${d.jours} Days `;
+    hours.innerHTML = ` :${d.Heures} Hours`;
+    minutes.innerHTML = ` :${d.Minute} Minute `;
+    secondes.innerHTML = ` :${d.secondes} Secondes`;
   }, 1000);
   countDate(date - 1000);
 });

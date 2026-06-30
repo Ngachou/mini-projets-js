@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Document</title>
+    <title>CountDown</title>
   </head>
   <body>
-    <form action="" id="form">
+    <div class="container" id="container">
+      <h1>⏰ Countdown Timer ⏰</h1>
+      <label for="">Entrer une date</label>
       <input
+        class="input"
         type="date"
         name=""
         id="input"
         placeholder="Please enter the number !"
       />
+      <button type="submit" class="btn">Start</button>
       <div class="time">
-        <div id="day"></div>
+        <div id="day">00</div>
+        <div id="hours">00</div>
+        <div id="minutes">00</div>
+        <div id="secondes">00</div>
       </div>
-    </form>
-    <button type="submit" class="btn"></button>
+    </div>
   </body>
   <script src="script.js"></script>
 </html>
