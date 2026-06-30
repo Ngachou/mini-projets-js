@@ -7,19 +7,22 @@
     <title>Transaction</title>
   </head>
   <body>
-    <form id="form" action="">
-      <p id="solde"></p>
+    <form class="form" id="form" action="">
+      <h1>Transaction</h1>
+      <p class="solde" id="solde"></p>
       <input
+        class="input"
         type="number"
         id="input"
         placeholder="Veuillez enter le montant du retrait"
       />
       <button type="submit" class="btn">Envoyer</button>
+      <div class="tictac">
+        <span id="minutes"></span>
+        <span id="secondes"></span>
+        <button type="submit" id="btn1" class="btn1">Stopper</button>
+      </div>
     </form>
-    <div class="tictac">
-      <span id="span"></span>
-      <button type="submit" id="btn1">Stopper</button>
-    </div>
     <div></div>
   </body>
   <script src="script.js"></script>

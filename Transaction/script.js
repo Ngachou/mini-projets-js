@@ -2,11 +2,12 @@ const form = document.getElementById("form");
 const input = document.getElementById("input");
 const p = document.querySelector("#solde");
 const btn = document.querySelector(".btn");
-const span = document.getElementById("span");
+const minute = document.getElementById("minutes");
+const seconde = document.getElementById("secondes");
 const stopper = document.getElementById("btn1");
 const timers = document.querySelector(".tictac");
 let solde = parseInt(localStorage.getItem("mnt")) || 1000;
-const LIMIT = 5 * 1000;
+const LIMIT = 10 * 1000;
 p.textContent = solde;
 
 //this function enables of convert time to millisecondes
@@ -38,13 +39,14 @@ btn.addEventListener("click", (e) => {
     if (date <= 0) {
       transac(montant);
       timers.style.display = "none";
-      return clearInterval(t);
+      clearInterval(t);
+      return alert("Transaction effectuer");
     }
-
-    date -= 1000;
+    date = date - 1000;
     m = decount(date);
     console.log(m, date);
-    span.innerHTML = `${m.Minute}Min :${m.Seconde}Secs `;
+    minute.innerHTML = `${m.Minute}Min `;
+    seconde.innerHTML = ` :${m.Seconde}Sec`;
   }, 1000);
   timers.style.display = "flex";
 
