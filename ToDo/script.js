@@ -1,11 +1,16 @@
 const input = document.querySelector(".input");
 const btn = document.querySelector(".btn");
 const liste = document.querySelector(".liste");
+let todos = [];
 
-function ajouter(texte) {
-  if (texte.trim() == "") {
+function ajouter(text) {
+  if (text.trim() == "") {
     return alert("va chier");
   }
+  const todo = {
+    id: Date.now(),
+    text,
+  };
 
   const li = document.createElement("li");
   const btnsup = document.createElement("button");
@@ -17,6 +22,7 @@ function ajouter(texte) {
   btnsup.addEventListener("click", () => {
     li.remove();
   });
+  todos.push(todo);
 }
 btn.addEventListener("click", () => {
   ajouter(input.value);
