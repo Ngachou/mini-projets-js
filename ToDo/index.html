@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>My Todo_list</title>
   </head>
   <body>
-    <div id="todo" class="todo">
-      <input id="input" type="text" placeholder="Veuillez entrer une tache" />
-      <button id="btn" type="submit">Ajouter</button>
-      <ul id="list" class="list"></ul>
+    <div class="container">
+      <h1>Todo_list</h1>
+      <input
+        type="text"
+        class="input"
+        id="input"
+        placeholder="Please Enter a New task"
+      />
+      <button class="btn" id="btn">ADD</button>
+      <ul class="liste"></ul>
     </div>
     <script src="script.js"></script>
   </body>

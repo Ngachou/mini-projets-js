@@ -34,6 +34,9 @@ body {
   align-items: center;
   gap: 10px;
 }
+.day {
+  border-radius: 5px 5px;
+}
 .input {
   padding: 10px;
   background-color: rgb(188, 207, 230);

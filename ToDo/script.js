@@ -1,19 +1,24 @@
-const input = document.getElementById("input");
-const btn = document.getElementById("btn");
-const list = document.getElementById("list");
-const tache = [];
-function Addtask(texte) {
-  if (texte.trim() == "") return alert("tes noyaux");
+const input = document.querySelector(".input");
+const btn = document.querySelector(".btn");
+const liste = document.querySelector(".liste");
+
+function ajouter(texte) {
+  if (texte.trim() == "") {
+    return alert("va chier");
+  }
+
   const li = document.createElement("li");
-  const span = document.createElement("span");
-  const button = document.createElement("button");
-  span.textContent = texte;
-  button.textContent = "Supp";
-  li.appendChild(span);
-  li.appendChild(button);
-  list.appendChild(li);
+  const btnsup = document.createElement("button");
+  btnsup.textContent = "Supp";
+  li.textContent = texte;
+  li.appendChild(btnsup);
+  liste.appendChild(li);
+  input.value = "";
+  btnsup.addEventListener("click", () => {
+    li.remove();
+  });
 }
 btn.addEventListener("click", () => {
-  const t = tache.push(Addtask(input.value));
-  console.log(t);
+  ajouter(input.value);
+  console.log(input.value);
 });
