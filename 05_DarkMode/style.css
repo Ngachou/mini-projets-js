@@ -50,12 +50,14 @@ header {
   gap: 10px;
   align-items: center;
 }
+/* here, stylisation of light and dark span */
 .label {
   font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 500;
   transition: color 0.3s ease;
 }
+/* button   */
 .switch {
   width: 60px;
   height: 30px;
@@ -69,6 +71,7 @@ header {
 [data-theme="dark"] .switch {
   background: blue;
 }
+/* span of button */
 .slider {
   display: block;
   width: 20px;
