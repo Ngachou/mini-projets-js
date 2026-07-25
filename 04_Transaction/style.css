@@ -11,7 +11,12 @@
   --btn: rgb(91, 91, 241);
   --text: black;
 }
-
+[data-theme="dark"] {
+  --primary-color: rgb(189, 176, 176);
+  --secondary-color: rgba(151, 151, 158, 0.877);
+  --btn: rgb(11, 11, 12);
+  --text: white;
+}
 body {
   background: var(--primary-color);
   height: 500px;

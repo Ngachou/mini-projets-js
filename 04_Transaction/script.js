@@ -6,9 +6,21 @@ const minute = document.getElementById("minutes");
 const seconde = document.getElementById("secondes");
 const stopper = document.getElementById("btn1");
 const timers = document.querySelector(".tictac");
+const html = document.documentElement;
+const toggleBtn = document.getElementById("toggleBtn");
 let solde = parseInt(localStorage.getItem("mnt")) || 1000;
 const LIMIT = 10 * 1000;
 p.textContent = solde;
+
+//darkmode
+const currenttheme = localStorage.getItem("theme") || "light";
+html.setAttribute("data-theme", currenttheme);
+toggleBtn.addEventListener("click", () => {
+  const currenttheme = html.getAttribute("data-theme");
+  const newTheme = currenttheme === "dark" ? "light" : "dark";
+  html.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+});
 
 //this function enables of convert time to millisecondes
 function decount(date) {
