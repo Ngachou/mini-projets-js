@@ -7,6 +7,54 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
+      <form action="" id="form">
+        <h1>Inscription</h1>
+
+        <label for="firstname">FirstName</label>
+        <input
+          id="firstname"
+          type="text"
+          class="input"
+          placeholder="Please enter your firstname"
+        />
+
+        <label for="lastname">LastName</label>
+        <input
+          id="lastname"
+          type="text"
+          class="input"
+          placeholder="Please enter your lastname"
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="email"
+          placeholder="Enter email"
+          required
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="password"
+          placeholder="Enter password"
+          required
+        />
+
+        <label for="confirmpass">Confirm Pasword</label>
+        <input
+          type="password"
+          id="confirmpass"
+          placeholder="Confirm password"
+          required
+        />
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
