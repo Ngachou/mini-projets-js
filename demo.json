@@ -1,0 +1,27 @@
+{
+  "title": "Learn JSON",
+  "content": "...",
+  "author": {
+    "firstname": "karl",
+    "lastnane": "Steve",
+    "birthyear": 2002
+  },
+  "comments": [
+    {
+      "username": "John Doe",
+      "content": "Super student",
+      "replies": []
+    },
+    {
+      "username": "John Doe",
+      "content": "J'ai bien appris",
+      "replies": [
+        {
+          "username": "John Doe",
+          "content": "...",
+          "replies": []
+        }
+      ]
+    }
+  ]
+}
