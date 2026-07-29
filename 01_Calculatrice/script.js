@@ -30,8 +30,3 @@ const calculer = (valeur) => {
     }
   }
 };
-
-window.addEventListener("error", (e) => {
-  alert("une erreur est survenue dans votre calcul: " + e.message);
-});
-g;
