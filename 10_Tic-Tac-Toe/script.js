@@ -1,3 +1,3 @@
-tab.forEach((e) => {
-  console.log("${e}");
-});
+import { tableau } from "./test.js";
+
+tableau(12);
