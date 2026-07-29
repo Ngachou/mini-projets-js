@@ -4,6 +4,7 @@ const lastname = document.getElementById("lastname");
 const email = document.getElementById("email");
 const pwd = document.getElementById("password");
 const confirmpwd = document.getElementById("confirmpass");
+const up = document.getElementById("file");
 
 function verifyPassword(input1, input2) {
   if (input1 !== input2) {
@@ -26,21 +27,37 @@ form.addEventListener("submit", (e) => {
   if (!verifyPassword(pwd.value, confirmpwd.value)) {
     return;
   }
-
   console.log("Les mots de passe sont corrects");
+
+  // methode POST
+  const data = {
+    name: firstname.value,
+    username: lastname.value,
+    email: email.value,
+  };
+  //pour uploader un fichier
+  const formData = new FormData();
+  formData.append("fichier", up);
+
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+  xhr.open("POST", "https://jsonplaceholder.typicode.com/posts");
+  xhr.setRequestHeader("Content-Type", "application/json, charset=UTF-8");
+
   xhr.onload = function () {
-    if (xhr.status === 200) {
-      const users = JSON.parse(xhr.responseText);
-      console.log(users);
+    if (xhr.status === 201) {
+      const reponse = JSON.parse(xhr.responseText);
+      console.log(reponse);
     } else {
       console.log("Erreur HTTP: ", xhr.status);
     }
   };
   xhr.timeout = 8000;
+  xhr.ontimeout = function () {
+    console.log("le delais est deja passer");
+  };
   xhr.onerror = function () {
     console.log("erreur reseau");
   };
-  xhr.send();
+  xhr.send(JSON.stringify(data), formData);
 });
+//
