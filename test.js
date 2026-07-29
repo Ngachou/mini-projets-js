@@ -1,4 +1,4 @@
-let chiffre = [1, 2, 3, 5, 6, 23];
+// let chiffre = [1, 2, 3, 5, 6, 23];
 // Permet d'afficher la valeur de l'index choisis number.at(3);
 // permet d'ajouter un eelement a la derniere position number.push(4);
 // permet de supprimer le dernier elemet du tableau number.pop();
@@ -20,6 +20,6 @@ let chiffre = [1, 2, 3, 5, 6, 23];
 // const tab = new Array(chiffre.isArray);
 // Array.isArray();
 
-let salutation = "bonjour";
-salutation += ", john";
-console.log(salutation);
+// let salutation = "bonjour";
+// salutation += ", john";
+// console.log(salutation);
